@@ -1,0 +1,15 @@
+## Manipulating your data
+##Arrange the data by most lead time to least lead time to focus on booking made in advance
+
+  arrange(hotel_bookings, desc(lead_time))  
+
+#Find out the maximum and minimum lead times
+ max(hotel_bookings$lead_time) 
+  min(hotel_bookings$lead_time)
+
+# Get the average lead time for booking
+mean(otel_bookings$lead_time)
+
+# filter average lead time by city hotels 
+hotel_bookings_city <- hotel_bookings %>%
+  filter(mean())
