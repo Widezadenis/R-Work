@@ -1,15 +1,22 @@
 ## Manipulating your data
-##Arrange the data by most lead time to least lead time to focus on booking made in advance
+##Arranges the data by most lead time to least lead time to focus on booking made in advance
+  hotel_bookings %>% 
+  arrange(desc(lead_time))  
 
-  arrange(hotel_bookings, desc(lead_time))  
+##Finds the maximum, minimum, and average lead times
+ min_max_avg_lead_time <- hotel_bookings %>% 
+  summarize(max_lead = max(lead_time), 
+            min_lead = min(lead_time), 
+            avg_lead = mean(lead_time))
 
-#Find out the maximum and minimum lead times
- max(hotel_bookings$lead_time) 
-  min(hotel_bookings$lead_time)
+## Finds the average lead time before booking is for just city hotels
+hotel_bookings_city <- hotel_bookings %>% 
+  filter(hotel == "City Hotel") %>% 
+  summarize(mean_lead = mean(lead_time))
 
-# Get the average lead time for booking
-mean(otel_bookings$lead_time)
-
-# filter average lead time by city hotels 
-hotel_bookings_city <- hotel_bookings %>%
-  filter(mean())
+#Finds the maximum and minimum lead time for hotels and how they are different from resort hotels
+hotel_summary <- hotel_bookings %>% 
+  group_by(hotel) %>% 
+  summarize(max_lead = max(lead_time), 
+            min_lead = min(lead_time), 
+            avg_lead = mean(lead_time))
