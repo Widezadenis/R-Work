@@ -1,0 +1,16 @@
+superstore <- read_csv("/cloud/project/Course 7/Week 3/sample_superstore.csv")
+
+## Using geom_point
+ggplot(data = superstore) +
+  geom_point(mapping = aes(x = Sales, y = Profit))
+
+#Using geom_bar
+ggplot(superstore, aes( x = Category, y = Sales)) +
+  geom_bar(stat = "identity")
+
+#Using geom_line
+ggplot(superstore, aes(x = Sales, y = Profit)) +
+  geom_line()
+
+
+
