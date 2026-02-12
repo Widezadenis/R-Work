@@ -1,0 +1,22 @@
+# Find which market segments generate the largest number of bookings, and where these bookings are made (city hotels or resort hotels).
+
+create a bar chart showing each hotel type and market segment.
+ggplot(data = hotel_bookings) + 
+  geom_bar(mapping = aes(x = hotel, fill = market_segment))
+
+create a separate plot for each market segment
+ggplot(data = hotel_bookings) + 
+  geom_bar(mapping = aes(x = hotel, fill = market_segment)) +
+  facet_wrap(~market_segment)
+
+create a plot that shows the relationship between lead time and guests traveling with children for online bookings at city hotels
+
+Start by filtering the data 
+Online_TA_City_Hotels <- hotel_bookings %>% 
+  filter(hotel == 'City Hotel') %>% 
+  filter(Market_segment == 'Online TA')
+
+Create plot
+ggplot( data = Online_TA_City_Hotels) +
+  geom_point(mapping = aes(x = lead_time, y = children))
+  
