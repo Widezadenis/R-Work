@@ -13,4 +13,21 @@ ggplot(superstore, aes(x = Sales, y = Profit)) +
   geom_line()
 
 
+############################### Hote Dataset ###############################
+Checks to see if people who book early are people with children. 
+ggplot(data = hotel_bookings) +
+  geom_point(mapping = aes(x = lead_time, y = children))
+
+Finds what group of guests book the most weekend nights
+ggplot(data = hotel_bookings) + 
+  geom_point(mapping = aes(x = stays_in_weekend_nights, y = children))
+
+or
+
+ggplot(hotel_bookings, aes(x = stays_in_weekend_nights , y = children)) + 
+         geom_line()
+
+or 
+ggplot(hotel_bookings, aes(x = children , y = stays_in_weekend_nights)) + 
+         geom_bar(stat = "identity")
 
