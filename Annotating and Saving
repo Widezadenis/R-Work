@@ -1,0 +1,11 @@
+##Create a visualization that compares market segments between city hotels and resort hotels
+create a cleaned and labeled version and save it as a .png file to include in a presentation.
+
+ggplot(data = hotel_bookings) +  (Indicates which dataset to pull data from)
+  geom_bar(mapping = aes(x = market_segment)) + (creates a bar chart mapping maket_segment on the x-axis)
+  facet_wrap(~hotel) +  (creates different plot for each hotel type)
+  labs(title = "Market Segments Between City Hotels and Resort Hotels",   (adds a title for viewers)
+  caption = paste0("Data from: ", mindate, " to ", maxdate))  (adds a caption at the bottom of screen to identify when the data is from)
+
+mindate <- min(hotel_bookings$arrival_date_year)
+maxdate <- max(hotel_bookings$arrival_date_year) (finds out when the data is from)
