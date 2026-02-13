@@ -7,9 +7,8 @@ ggplot(data = hotel_bookings) +  (Indicates which dataset to pull data from)
   labs(title = "Market Segments: City Vs Resort Hotels")",   (adds a title for viewers)
   caption = paste0("Data from: ", mindate, " to ", maxdate) (adds a caption at the bottom of screen to identify when the data is from)
             x = "Market Segments",
-            y = "Number of Bookings")  (adds labels to the x and y axis)
-
-ggsave('hotel_booking_chart.png', width=7,
+            y = "Number of Bookings")  (adds labels to the x and y axis) + 
+  ggsave('hotel_booking_chart.png', width=7,
        height=7) (saves to pc as a 7x7 png file)
 
 mindate <- min(hotel_bookings$arrival_date_year)
